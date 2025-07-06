@@ -678,16 +678,16 @@ Generated on ${new Date().toLocaleDateString()}`
                   <span className="text-text-primary font-bold">
                     ${commodityData.arabica.price}/lb
                   </span>
-                  <ArrowUpRight className="w-4 h-4 text-yellow-400" />
-                  <span className="text-yellow-400 text-sm">
+                  <ArrowUpRight className="w-4 h-4 text-accent-400" />
+                  <span className="text-accent-400 text-sm">
                     +{commodityData.arabica.change}%
                   </span>
                 </div>
               </div>
-              <div className="bg-yellow-400/10 border border-yellow-400/20 p-3 rounded">
-                <div className="flex items-center gap-2">
-                  <AlertTriangle className="w-4 h-4 text-yellow-400" />
-                  <span className="text-sm text-yellow-400 font-medium">
+              <div className="bg-accent-400/10 border border-accent-400/20 p-3 rounded">
+                <div className="flex items-center">
+                  <AlertTriangle className="w-4 h-4 text-accent-400" />
+                  <span className="text-sm text-accent-400 font-medium ml-2">
                     Highest prices in history - expect them to stay high
                   </span>
                 </div>
@@ -731,7 +731,7 @@ Generated on ${new Date().toLocaleDateString()}`
           {commodityData.businessImpact.map((item, index) => (
             <div key={index} className="space-y-3">
               <div className="flex items-start gap-3">
-                <AlertTriangle className="w-5 h-5 text-yellow-400 mt-1 flex-shrink-0" />
+                <AlertTriangle className="w-5 h-5 text-accent-400 mt-1 flex-shrink-0" />
                 <div className="space-y-2">
                   <p className="text-text-primary font-medium">
                     {item.challenge}
@@ -740,10 +740,10 @@ Generated on ${new Date().toLocaleDateString()}`
                     {item.meaning}
                   </p>
                   <div className="flex items-start gap-2">
-                    <span className="text-yellow-400 font-medium text-sm">
+                    <span className="text-accent-400 font-medium text-sm">
                       →
                     </span>
-                    <p className="text-yellow-400 text-sm font-medium">
+                    <p className="text-accent-400 text-sm font-medium">
                       {item.action}
                     </p>
                   </div>

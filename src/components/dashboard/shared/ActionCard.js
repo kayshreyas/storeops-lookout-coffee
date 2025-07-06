@@ -67,7 +67,7 @@ const ActionCard = ({ opportunity }) => {
                     ? 'bg-red-500 text-white'
                     : priority === 'High'
                       ? 'bg-orange-500 text-white'
-                      : 'bg-yellow-500 text-white'
+                      : 'bg-accent-500 text-white'
                 }`}
               >
                 {priority}

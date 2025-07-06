@@ -30,6 +30,7 @@ import L from 'leaflet'
 import { competitors, ourCafe } from '../data/constants'
 import MetricCard from '../shared/MetricCard'
 import 'leaflet/dist/leaflet.css'
+import { useTheme } from '../../../hooks/useTheme'
 
 const ChangeView = ({ center, zoom }) => {
   const map = useMap()
@@ -39,22 +40,8 @@ const ChangeView = ({ center, zoom }) => {
   return null
 }
 
-const getIcon = (type) => {
-  const iconHtml =
-    type === 'us'
-      ? `<div style="background-color: #E8B9FF; width: 2.5rem; height: 2.5rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid white;"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg></div>`
-      : `<div style="background-color: #3A3A3A; width: 2rem; height: 2rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid white;"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></div>`
-
-  return L.divIcon({
-    html: iconHtml,
-    className: '',
-    iconSize: type === 'us' ? [40, 40] : [32, 32],
-    iconAnchor: type === 'us' ? [20, 40] : [16, 32],
-    popupAnchor: [0, -32],
-  })
-}
-
 const CompetitionTab = () => {
+  const { theme } = useTheme()
   const [selected, setSelected] = useState(competitors[0])
   const [mapCenter, setMapCenter] = useState([ourCafe.lat, ourCafe.lng])
   const [mapZoom, setMapZoom] = useState(14)
@@ -66,6 +53,27 @@ const CompetitionTab = () => {
     seo: false,
     recommendations: false,
   })
+
+  const getIcon = (type) => {
+    const primaryColor = getComputedStyle(document.documentElement).getPropertyValue('--color-primary').trim()
+    const surfaceColor = getComputedStyle(document.documentElement).getPropertyValue('--color-surface').trim()
+    const onPrimaryColor = getComputedStyle(document.documentElement).getPropertyValue('--color-on-primary').trim()
+    const textColor = theme === 'light' ? 'white' : 'black'
+
+
+    const iconHtml =
+      type === 'us'
+        ? `<div style="background-color: ${primaryColor}; width: 2.5rem; height: 2.5rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid white;"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="${onPrimaryColor}" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg></div>`
+        : `<div style="background-color: ${surfaceColor}; width: 2rem; height: 2rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid white;"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="${textColor}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></div>`
+
+    return L.divIcon({
+      html: iconHtml,
+      className: '',
+      iconSize: type === 'us' ? [40, 40] : [32, 32],
+      iconAnchor: type === 'us' ? [20, 40] : [16, 32],
+      popupAnchor: [0, -32],
+    })
+  }
 
   const handleSelect = (competitor) => {
     setSelected(competitor)
@@ -85,7 +93,7 @@ const CompetitionTab = () => {
       case 'HIGH':
         return 'text-red-400'
       case 'MODERATE':
-        return 'text-yellow-400'
+        return 'text-accent-400'
       case 'LOW':
         return 'text-green-400'
       default:
@@ -415,7 +423,7 @@ Generated on ${new Date().toLocaleDateString()}`
                         </h4>
                         <div className="flex items-center gap-4 text-sm text-text-secondary">
                           <span className="flex items-center gap-1">
-                            <Star className="w-4 h-4 text-yellow-400" />
+                            <Star className="w-4 h-4 text-accent-400" />
                             {competitor.rating}
                           </span>
                           <span className="flex items-center gap-1">
@@ -456,7 +464,7 @@ Generated on ${new Date().toLocaleDateString()}`
                           </div>
                           <div className="bg-surface border border-border p-3 rounded-lg">
                             <div className="flex items-center gap-2 mb-1">
-                              <DollarSign className="w-4 h-4 text-green-400" />
+                              <DollarSign className="w-4 h-4 text-accent-400" />
                               <span className="text-xs text-text-secondary">
                                 Traffic Value
                               </span>
@@ -552,7 +560,7 @@ Generated on ${new Date().toLocaleDateString()}`
                       </h4>
                       <div className="flex items-center gap-3 text-sm text-text-secondary">
                         <span className="flex items-center gap-1">
-                          <Star className="w-3 h-3 text-yellow-400" />
+                          <Star className="w-3 h-3 text-accent-400" />
                           {competitor.rating}
                         </span>
                         <span>{competitor.reviewCount} reviews</span>
@@ -748,8 +756,8 @@ Generated on ${new Date().toLocaleDateString()}`
 
               <div className="bg-background border border-border rounded-lg p-6">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="p-2 bg-yellow-400/10 rounded-lg">
-                    <Target className="w-5 h-5 text-yellow-400" />
+                  <div className="p-2 bg-accent-400/10 rounded-lg">
+                    <Target className="w-5 h-5 text-accent-400" />
                   </div>
                   <h4 className="font-bold text-text-primary">
                     Medium-term (3-6 months)
@@ -757,25 +765,25 @@ Generated on ${new Date().toLocaleDateString()}`
                 </div>
                 <ul className="space-y-3 text-sm">
                   <li className="flex items-start gap-2">
-                    <Target className="w-4 h-4 text-yellow-400 mt-0.5 flex-shrink-0" />
+                    <Target className="w-4 h-4 text-accent-400 mt-0.5 flex-shrink-0" />
                     <span className="text-text-secondary">
                       Add breakfast sandwiches to compete with Living Room
                     </span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <Target className="w-4 h-4 text-yellow-400 mt-0.5 flex-shrink-0" />
+                    <Target className="w-4 h-4 text-accent-400 mt-0.5 flex-shrink-0" />
                     <span className="text-text-secondary">
                       Implement online ordering system
                     </span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <Target className="w-4 h-4 text-yellow-400 mt-0.5 flex-shrink-0" />
+                    <Target className="w-4 h-4 text-accent-400 mt-0.5 flex-shrink-0" />
                     <span className="text-text-secondary">
                       Launch customer loyalty program
                     </span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <Target className="w-4 h-4 text-yellow-400 mt-0.5 flex-shrink-0" />
+                    <Target className="w-4 h-4 text-accent-400 mt-0.5 flex-shrink-0" />
                     <span className="text-text-secondary">
                       Host monthly coffee education events
                     </span>

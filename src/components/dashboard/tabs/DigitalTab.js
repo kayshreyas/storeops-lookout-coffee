@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import {
   ThumbsUp,
   ThumbsDown,
@@ -9,7 +9,7 @@ import {
   Star,
   ExternalLink,
   Users,
-  BarChart,
+  BarChart as BarChartIcon,
   ListChecks,
   Award,
   DollarSign,
@@ -24,8 +24,13 @@ import {
   RadialBar,
   PolarAngleAxis,
   Tooltip,
+  XAxis,
+  YAxis,
+  Bar,
+  BarChart,
 } from 'recharts'
 import { digitalPresence, seoAnalysis } from '../data/constants'
+import { useTheme } from '../../../hooks/useTheme'
 
 const { score, summary, sentiment, profiles, reviewHighlights } =
   digitalPresence
@@ -42,7 +47,7 @@ const CustomTooltip = ({ active, payload }) => {
 }
 
 const ICONS = {
-  'Google Business': <Star className="w-5 h-5 text-yellow-400" />,
+  'Google Business': <Star className="w-5 h-5 text-accent-400" />,
   Yelp: <MessageSquare className="w-5 h-5 text-red-500" />,
   Instagram: <TrendingUp className="w-5 h-5 text-pink-500" />,
   Website: <ExternalLink className="w-5 h-5 text-sky-400" />,
@@ -109,6 +114,17 @@ const ProfileCard = ({ profile }) => (
 )
 
 const DigitalScore = ({ score }) => {
+  const { theme } = useTheme()
+  const [primaryColor, setPrimaryColor] = useState('#E8B9FF')
+  const [secondaryColor, setSecondaryColor] = useState('#A855F7')
+
+  useEffect(() => {
+    const primary = getComputedStyle(document.documentElement).getPropertyValue('--color-primary').trim()
+    const secondary = theme === 'light' ? '#A855F7' : '#C084FC'
+    setPrimaryColor(primary)
+    setSecondaryColor(secondary)
+  }, [theme])
+
   const data = [{ value: score }]
   return (
     <div className="bg-surface border border-border p-6 flex flex-col justify-center items-center">
@@ -133,8 +149,8 @@ const DigitalScore = ({ score }) => {
                 x2="0"
                 y2="1"
               >
-                <stop offset="0%" stopColor="#E8B9FF" />
-                <stop offset="100%" stopColor="#A855F7" />
+                <stop offset="0%" stopColor={primaryColor} />
+                <stop offset="100%" stopColor={secondaryColor} />
               </linearGradient>
             </defs>
             <PolarAngleAxis
@@ -162,10 +178,24 @@ const DigitalScore = ({ score }) => {
 }
 
 const SentimentAnalysis = ({ sentiment }) => {
+  const { theme } = useTheme()
+  const [positiveColor, setPositiveColor] = useState('#E8B9FF')
+  const [neutralColor, setNeutralColor] = useState('#A3A3A3')
+  const [negativeColor, setNegativeColor] = useState('#facc15')
+
+  useEffect(() => {
+    const positive = getComputedStyle(document.documentElement).getPropertyValue('--color-primary').trim()
+    const neutral = getComputedStyle(document.documentElement).getPropertyValue('--color-text-secondary').trim()
+    const negative = theme === 'light' ? '#f59e0b' : '#facc15'
+    setPositiveColor(positive)
+    setNeutralColor(neutral)
+    setNegativeColor(negative)
+  }, [theme])
+
   const data = [
-    { name: 'Positive', value: sentiment.positive, color: '#E8B9FF' },
-    { name: 'Neutral', value: sentiment.neutral, color: '#A3A3A3' },
-    { name: 'Negative', value: sentiment.negative, color: '#facc15' },
+    { name: 'Positive', value: sentiment.positive, color: positiveColor },
+    { name: 'Neutral', value: sentiment.neutral, color: neutralColor },
+    { name: 'Negative', value: sentiment.negative, color: negativeColor },
   ]
 
   return (
@@ -184,12 +214,12 @@ const SentimentAnalysis = ({ sentiment }) => {
                 x2="0"
                 y2="1"
               >
-                <stop offset="0%" stopColor="#E8B9FF" />
-                <stop offset="100%" stopColor="#C084FC" />
+                <stop offset="0%" stopColor={positiveColor} />
+                <stop offset="100%" stopColor={theme === 'light' ? '#C084FC' : '#A855F7'} />
               </linearGradient>
               <linearGradient id="sentimentNeutral" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="#A3A3A3" />
-                <stop offset="100%" stopColor="#737373" />
+                <stop offset="0%" stopColor={neutralColor} />
+                <stop offset="100%" stopColor={theme === 'light' ? '#9CA3AF' : '#737373'} />
               </linearGradient>
               <linearGradient
                 id="sentimentNegative"
@@ -198,8 +228,8 @@ const SentimentAnalysis = ({ sentiment }) => {
                 x2="0"
                 y2="1"
               >
-                <stop offset="0%" stopColor="#FDE047" />
-                <stop offset="100%" stopColor="#FACC15" />
+                <stop offset="0%" stopColor={negativeColor} />
+                <stop offset="100%" stopColor={theme === 'light' ? '#F59E0B' : '#FACC15'} />
               </linearGradient>
             </defs>
             <Tooltip content={<CustomTooltip />} cursor={false} />
@@ -251,24 +281,30 @@ const SeoAnalysis = () => {
 }
 
 const SeoOverviewMetrics = () => (
-  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
     <MetricCard
-      icon={<Search className="w-6 h-6 text-primary" />}
-      label="Keywords Ranking"
+      icon={Search}
+      label="Total Keywords"
       value={seoAnalysis.totalKeywords}
-      caption="in top 100 results"
+      caption="in top 100"
     />
     <MetricCard
-      icon={<DollarSign className="w-6 h-6 text-primary" />}
+      icon={DollarSign}
       label="Est. Traffic Value"
       value={`$${seoAnalysis.trafficValue.toLocaleString()}`}
-      caption="monthly organic value"
+      caption="per month"
     />
     <MetricCard
-      icon={<Award className="w-6 h-6 text-primary" />}
+      icon={BarChartIcon}
       label="Domain Rank"
       value={seoAnalysis.domainRank}
-      caption="out of 100 (strong)"
+      caption="out of 100"
+    />
+    <MetricCard
+      icon={Award}
+      label="Top 3 Positions"
+      value={`${seoAnalysis.rankingDistribution[0].value.toFixed(1)}%`}
+      caption="of all keywords"
     />
   </div>
 )
@@ -277,28 +313,27 @@ const KeywordAnalysis = () => {
   const COLORS = ['#E8B9FF', '#C084FC', '#A855F7', '#737373']
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
-      <div className="lg:col-span-2 bg-surface border-border p-6">
-        <h4 className="font-semibold text-text-primary mb-1 flex items-center text-base">
-          Ranking Distribution
-        </h4>
-        <p className="text-xs text-text-secondary mb-4">
-          Where your keywords land in search results.
-        </p>
-        <div className="w-40 h-40 mx-auto">
-          <ResponsiveContainer>
-            <PieChart>
-              <Tooltip content={<CustomTooltip />} cursor={false} />
-              <Pie
-                data={seoAnalysis.rankingDistribution}
-                dataKey="value"
-                nameKey="name"
-                cx="50%"
-                cy="50%"
-                innerRadius={45}
-                outerRadius={60}
-                paddingAngle={3}
-              >
+    <div>
+      <h4 className="text-lg font-bold text-text-primary mb-4">
+        Ranking Distribution
+      </h4>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="h-64">
+          <ResponsiveContainer width="100%" height="100%">
+            <BarChart data={seoAnalysis.rankingDistribution} layout="vertical">
+              <XAxis type="number" hide />
+              <YAxis
+                dataKey="name"
+                type="category"
+                tick={{ fill: 'var(--color-text-secondary)', fontSize: 12 }}
+              />
+              <Tooltip
+                cursor={{ fill: 'var(--color-surface)' }}
+                content={
+                  <CustomTooltip />
+                }
+              />
+              <Bar dataKey="value" barSize={20}>
                 {seoAnalysis.rankingDistribution.map((entry, index) => (
                   <Cell
                     key={`cell-${index}`}
@@ -306,124 +341,69 @@ const KeywordAnalysis = () => {
                     strokeWidth={0}
                   />
                 ))}
-              </Pie>
-            </PieChart>
+              </Bar>
+            </BarChart>
           </ResponsiveContainer>
         </div>
-        <div className="mt-4 grid grid-cols-2 gap-x-4 gap-y-2 text-xs">
-          {seoAnalysis.rankingDistribution.map((entry, index) => (
-            <div key={entry.name} className="flex items-center">
-              <span
-                className="w-2 h-2 rounded-full mr-2"
-                style={{ backgroundColor: COLORS[index % COLORS.length] }}
-              ></span>
-              <span className="text-text-secondary">{entry.name}:</span>
-              <span className="font-semibold text-text-primary ml-auto">
-                {entry.value}%
-              </span>
-            </div>
-          ))}
-        </div>
-      </div>
-      <div className="lg:col-span-3 bg-surface border-border p-6">
-        <h4 className="font-semibold text-text-primary mb-1 flex items-center text-base">
-          Top Performing Keywords
-        </h4>
-        <p className="text-xs text-text-secondary mb-4">
-          The search terms driving the most value for your business.
-        </p>
-        <ul className="space-y-3 text-sm">
-          {seoAnalysis.topKeywords.map((kw) => (
-            <li
-              key={kw.keyword}
-              className="flex justify-between items-center border-b border-border/50 pb-3"
-            >
-              <div>
-                <span className="text-text-primary font-medium">
-                  {kw.keyword}
+        <div className="text-sm">
+          <ul className="space-y-2">
+            {seoAnalysis.rankingDistribution.map((entry, index) => (
+              <li key={`item-${index}`} className="flex items-center">
+                <span
+                  className="w-2 h-2 rounded-full mr-2"
+                  style={{ backgroundColor: COLORS[index % COLORS.length] }}
+                ></span>
+                <span className="text-text-secondary">{entry.name}:</span>
+                <span className="text-text-primary font-semibold ml-2">
+                  {entry.value.toFixed(1)}%
                 </span>
-                <div className="flex items-center text-xs text-text-secondary mt-1">
-                  <span>Vol: {kw.volume}</span>
-                  {kw.growth && (
-                    <>
-                      <span className="mx-2">|</span>
-                      <span className="flex items-center text-primary/80 font-medium">
-                        <ArrowUpRight className="w-3 h-3 mr-1" />
-                        {kw.growth}% YoY
-                      </span>
-                    </>
-                  )}
-                </div>
-              </div>
-              <div className="text-right">
-                <p className="font-bold text-primary text-base">
-                  #{kw.position}
-                </p>
-                <p
-                  className={`text-xs font-semibold ${
-                    kw.type === 'Brand' ? 'text-primary/70' : 'text-sky-400/70'
-                  }`}
-                >
-                  {kw.type}
-                </p>
-              </div>
-            </li>
-          ))}
-        </ul>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </div>
   )
 }
 
 const StrategicSummary = ({ summary }) => (
-  <div className="bg-surface border-border p-6 flex flex-col justify-center items-center text-center">
-    <Target className="w-10 h-10 text-primary mb-4" />
-    <h3 className="font-semibold text-text-primary mb-2 text-base">
-      Key Takeaway
+  <div className="bg-surface border-border p-6">
+    <h3 className="font-semibold text-text-primary mb-3 text-base">
+      Strategic Summary
     </h3>
-    <p className="text-sm text-text-secondary leading-relaxed">{summary}</p>
+    <p className="text-sm text-text-secondary">{summary}</p>
   </div>
 )
 
-const MetricCard = ({ icon, label, value, caption }) => (
-  <div className="bg-surface border-border p-4 flex items-center">
-    <div className="mr-4">{icon}</div>
-    <div>
-      <p className="text-sm text-text-secondary">{label}</p>
-      <p className="text-2xl font-bold text-text-primary">{value}</p>
-      {caption && <p className="text-xs text-text-secondary">{caption}</p>}
+const MetricCard = ({ icon: Icon, label, value, caption }) => (
+  <div className="bg-surface border-border p-4">
+    <div className="flex items-center text-primary mb-2">
+      <Icon className="w-5 h-5" />
+      <h4 className="font-semibold text-text-primary ml-2 text-sm">{label}</h4>
     </div>
+    <p className="text-2xl font-bold text-text-primary">{value}</p>
+    <p className="text-xs text-text-secondary">{caption}</p>
   </div>
 )
 
 const CustomerVoice = ({ reviews }) => (
   <div className="bg-surface border-border p-6">
     <h3 className="font-semibold text-text-primary mb-4 text-base">
-      From Your Customers
+      Customer Voice
     </h3>
     <div className="space-y-4">
-      <div>
-        <div className="flex items-center mb-2">
-          <ThumbsUp className="h-5 w-5 text-primary mr-3" />
-          <h4 className="font-medium text-text-secondary text-sm uppercase tracking-wider">
-            Positive Feedback
-          </h4>
+      {Object.values(reviews).map((r, i) => (
+        <div key={i} className="flex items-start">
+          <div className="mr-3 mt-1">
+            {r.type === 'positive' ? (
+              <ThumbsUp className="w-4 h-4 text-green-400" />
+            ) : (
+              <ThumbsDown className="w-4 h-4 text-red-40a0" />
+            )}
+          </div>
+          <p className="text-sm text-text-secondary italic">"{r.comment}"</p>
         </div>
-        <p className="text-sm text-text-primary bg-primary/5 p-3 border border-primary/20">
-          "{reviews.positive}"
-        </p>
-      </div>
-      <div>
-        <div className="flex items-center mb-2">
-          <ThumbsDown className="h-5 w-5 text-yellow-400 mr-3" />
-          <h4 className="font-medium text-text-secondary text-sm uppercase tracking-wider">
-            Constructive Criticism
-          </h4>
-        </div>
-        <p className="text-sm text-text-primary bg-yellow-400/5 p-3 border border-yellow-400/20">
-          "{reviews.negative}"
-        </p>
-      </div>
+      ))}
     </div>
   </div>
 )

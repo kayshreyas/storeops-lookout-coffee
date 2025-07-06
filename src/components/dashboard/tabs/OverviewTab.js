@@ -706,12 +706,12 @@ Generated on ${new Date().toLocaleDateString()}`
 
               <div className="bg-surface border border-border p-6 rounded-lg">
                 <h4 className="text-lg font-semibold text-text-primary mb-4 flex items-center">
-                  <TrendingUp className="h-5 w-5 mr-3 text-yellow-400" />
+                  <TrendingUp className="h-5 w-5 mr-3 text-accent-400" />
                   Growth Opportunities
                 </h4>
                 <div className="space-y-3">
                   <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-yellow-400 rounded-full mt-2"></div>
+                    <div className="w-2 h-2 bg-accent-400 rounded-full mt-2"></div>
                     <div>
                       <h5 className="font-medium text-text-primary">
                         Extended Hours
@@ -722,7 +722,7 @@ Generated on ${new Date().toLocaleDateString()}`
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-yellow-400 rounded-full mt-2"></div>
+                    <div className="w-2 h-2 bg-accent-400 rounded-full mt-2"></div>
                     <div>
                       <h5 className="font-medium text-text-primary">
                         Corporate Catering
@@ -733,7 +733,7 @@ Generated on ${new Date().toLocaleDateString()}`
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-yellow-400 rounded-full mt-2"></div>
+                    <div className="w-2 h-2 bg-accent-400 rounded-full mt-2"></div>
                     <div>
                       <h5 className="font-medium text-text-primary">
                         Mobile Ordering
@@ -744,7 +744,7 @@ Generated on ${new Date().toLocaleDateString()}`
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-yellow-400 rounded-full mt-2"></div>
+                    <div className="w-2 h-2 bg-accent-400 rounded-full mt-2"></div>
                     <div>
                       <h5 className="font-medium text-text-primary">
                         Loyalty Program

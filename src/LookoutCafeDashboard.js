@@ -6,6 +6,7 @@ import CompetitionTab from './components/dashboard/tabs/CompetitionTab'
 import GrowthTab from './components/dashboard/tabs/GrowthTab'
 import DigitalTab from './components/dashboard/tabs/DigitalTab'
 import ShareButton from './components/dashboard/shared/ShareButton'
+import ThemeToggle from './components/dashboard/shared/ThemeToggle'
 import {
   BarChart3,
   TrendingUp,
@@ -52,7 +53,7 @@ const tabs = [
   },
   {
     id: 'growth',
-    label: 'Growth Actions',
+    label: 'Growth Recommendations',
     component: GrowthTab,
     icon: Target,
     category: 'action',
@@ -83,28 +84,29 @@ const LookoutCafeDashboard = () => {
               Campbell, CA
             </p>
           </div>
-          <ShareButton onClick={() => console.log('Share button clicked!')} />
+          <div className="flex items-center gap-4">
+            <ThemeToggle />
+            <ShareButton onClick={() => console.log('Share button clicked!')} />
+          </div>
         </div>
 
         <div className="mt-8">
           <div className="mb-4">
             {/* Tab Navigation */}
-            <div className="bg-surface border border-border rounded-lg p-2">
-              <div className="flex flex-wrap gap-2">
-                {tabs.map((tab) => (
-                  <TabButton
-                    key={tab.id}
-                    tab={tab.id}
-                    label={tab.label}
-                    icon={tab.icon}
-                    description={tab.description}
-                    category={tab.category}
-                    special={tab.special}
-                    isActive={activeTab === tab.id}
-                    onClick={setActiveTab}
-                  />
-                ))}
-              </div>
+            <div className="flex flex-wrap gap-2">
+              {tabs.map((tab) => (
+                <TabButton
+                  key={tab.id}
+                  tab={tab.id}
+                  label={tab.label}
+                  icon={tab.icon}
+                  description={tab.description}
+                  category={tab.category}
+                  special={tab.special}
+                  isActive={activeTab === tab.id}
+                  onClick={setActiveTab}
+                />
+              ))}
             </div>
           </div>
 
