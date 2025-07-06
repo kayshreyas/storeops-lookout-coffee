@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-background: #111827; /* Dark mode background */
+  --color-surface: #1f2937; /* Dark mode surface */
+  --color-primary: #e8b9ff; /* A lighter, more vibrant purple for dark mode */
+  --color-on-primary: #1f2937;
+  --color-text-primary: #f9fafb; /* Light Gray for primary text */
+  --color-text-secondary: #d1d5db; /* Lighter gray for secondary text */
+  --color-text-tertiary: #9ca3af; /* A bit darker gray for tertiary text */
+  --color-border: #374151; /* Darker border color */
+}
+
+body {
+  margin: 0;
+  background-color: theme('colors.background');
+  color: theme('colors.text-primary');
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.main-container {
+    background-image: 
+        linear-gradient(to right, theme('colors.border / 8%') 1px, transparent 1px),
+        linear-gradient(to bottom, theme('colors.border / 8%') 1px, transparent 1px);
+    background-size: 2rem 2rem;
+} 
