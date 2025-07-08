@@ -47,25 +47,25 @@ const CustomTooltip = ({ active, payload }) => {
 }
 
 const ICONS = {
-  'Google Business': <Star className="w-5 h-5 text-accent-400" />,
-  Yelp: <MessageSquare className="w-5 h-5 text-red-500" />,
-  Instagram: <TrendingUp className="w-5 h-5 text-pink-500" />,
-  Website: <ExternalLink className="w-5 h-5 text-sky-400" />,
+  'Google Business': <Star className="w-4 h-4 sm:w-5 sm:h-5 text-accent-400" />,
+  Yelp: <MessageSquare className="w-4 h-4 sm:w-5 sm:h-5 text-red-500" />,
+  Instagram: <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5 text-pink-500" />,
+  Website: <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5 text-sky-400" />,
 }
 
 const DigitalTab = () => {
   return (
-    <div>
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        <div className="lg:col-span-2 space-y-8">
-          <section className="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <div className="space-y-6 sm:space-y-8">
+      <div className="grid grid-cols-1 xl:grid-cols-3 gap-6 sm:gap-8">
+        <div className="xl:col-span-2 space-y-6 sm:space-y-8">
+          <section className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
             <DigitalScore score={score} />
             <SentimentAnalysis sentiment={sentiment} />
           </section>
           <OnlineProfileAnalysis />
           <SeoAnalysis />
         </div>
-        <div className="lg:col-span-1 space-y-8">
+        <div className="xl:col-span-1 space-y-6 sm:space-y-8">
           <StrategicSummary summary={summary} />
           <CustomerVoice reviews={reviewHighlights} />
         </div>
@@ -76,10 +76,10 @@ const DigitalTab = () => {
 
 const OnlineProfileAnalysis = () => (
   <section>
-    <h3 className="text-xl font-bold text-text-primary mb-4">
+    <h3 className="text-lg sm:text-xl font-bold text-text-primary mb-4">
       Online Profile Analysis
     </h3>
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
       {profiles.map((p) => (
         <ProfileCard key={p.platform} profile={p} />
       ))}
@@ -88,27 +88,27 @@ const OnlineProfileAnalysis = () => (
 )
 
 const ProfileCard = ({ profile }) => (
-  <div className="bg-surface border-border p-5 h-full flex flex-col">
+  <div className="bg-surface border-border p-4 sm:p-5 h-full flex flex-col">
     <div className="flex items-start justify-between mb-4">
-      <div className="flex items-center">
+      <div className="flex items-center min-w-0">
         {ICONS[profile.platform]}
-        <h4 className="font-semibold text-text-primary ml-3 text-base">
+        <h4 className="font-semibold text-text-primary ml-2 sm:ml-3 text-sm sm:text-base truncate">
           {profile.platform}
         </h4>
       </div>
-      <p className="text-xs font-mono text-text-secondary">{profile.handle}</p>
+      <p className="text-xs font-mono text-text-secondary flex-shrink-0 ml-2">{profile.handle}</p>
     </div>
     <div className="flex-grow space-y-2">
-      <div className="text-3xl font-bold text-text-primary">
+      <div className="text-2xl sm:text-3xl font-bold text-text-primary">
         {profile.metric}
       </div>
-      <p className="text-sm text-text-secondary">{profile.metricLabel}</p>
+      <p className="text-xs sm:text-sm text-text-secondary">{profile.metricLabel}</p>
     </div>
     <div className="mt-4 pt-4 border-t border-border">
       <p className="text-xs text-text-secondary font-semibold mb-1 uppercase tracking-wider">
         Next Step:
       </p>
-      <p className="text-sm text-text-primary">{profile.action}</p>
+      <p className="text-xs sm:text-sm text-text-primary">{profile.action}</p>
     </div>
   </div>
 )
@@ -127,11 +127,11 @@ const DigitalScore = ({ score }) => {
 
   const data = [{ value: score }]
   return (
-    <div className="bg-surface border border-border p-6 flex flex-col justify-center items-center">
-      <h3 className="font-semibold text-text-primary mb-4 text-base">
+    <div className="bg-surface border border-border p-4 sm:p-6 flex flex-col justify-center items-center">
+      <h3 className="font-semibold text-text-primary mb-4 text-sm sm:text-base">
         Digital Health Score
       </h3>
-      <div className="relative w-40 h-40">
+      <div className="relative w-32 h-32 sm:w-40 sm:h-40">
         <ResponsiveContainer>
           <RadialBarChart
             innerRadius="80%"
@@ -169,8 +169,8 @@ const DigitalScore = ({ score }) => {
           </RadialBarChart>
         </ResponsiveContainer>
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
-          <p className="text-4xl font-bold text-text-primary">{score}</p>
-          <p className="text-sm text-text-secondary">/ 100</p>
+          <p className="text-3xl sm:text-4xl font-bold text-text-primary">{score}</p>
+          <p className="text-xs sm:text-sm text-text-secondary">/ 100</p>
         </div>
       </div>
     </div>
@@ -199,11 +199,11 @@ const SentimentAnalysis = ({ sentiment }) => {
   ]
 
   return (
-    <div className="bg-surface border border-border p-6">
-      <h3 className="font-semibold text-text-primary mb-4 text-base">
+    <div className="bg-surface border border-border p-4 sm:p-6">
+      <h3 className="font-semibold text-text-primary mb-4 text-sm sm:text-base">
         Customer Sentiment
       </h3>
-      <div className="w-40 h-40 mx-auto">
+      <div className="w-32 h-32 sm:w-40 sm:h-40 mx-auto">
         <ResponsiveContainer>
           <PieChart>
             <defs>
@@ -253,7 +253,7 @@ const SentimentAnalysis = ({ sentiment }) => {
       <div className="mt-4 flex justify-around text-xs">
         {data.map((entry) => (
           <div key={entry.name} className="text-center">
-            <p className="font-bold text-base" style={{ color: entry.color }}>
+            <p className="font-bold text-sm sm:text-base" style={{ color: entry.color }}>
               {entry.value}%
             </p>
             <p className="text-text-secondary">{entry.name}</p>
@@ -267,10 +267,10 @@ const SentimentAnalysis = ({ sentiment }) => {
 const SeoAnalysis = () => {
   return (
     <section>
-      <h3 className="text-xl font-bold text-text-primary mb-2">
+      <h3 className="text-lg sm:text-xl font-bold text-text-primary mb-2">
         SEO Performance Analysis
       </h3>
-      <p className="text-sm text-text-secondary mb-6">
+      <p className="text-xs sm:text-sm text-text-secondary mb-4 sm:mb-6">
         A breakdown of your search engine visibility, keyword performance, and
         competitive landscape.
       </p>
@@ -281,7 +281,7 @@ const SeoAnalysis = () => {
 }
 
 const SeoOverviewMetrics = () => (
-  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+  <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-6 sm:mb-8">
     <MetricCard
       icon={Search}
       label="Total Keywords"
@@ -314,11 +314,11 @@ const KeywordAnalysis = () => {
 
   return (
     <div>
-      <h4 className="text-lg font-bold text-text-primary mb-4">
+      <h4 className="text-base sm:text-lg font-bold text-text-primary mb-4">
         Ranking Distribution
       </h4>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        <div className="h-64">
+      <div className="grid grid-cols-1 xl:grid-cols-2 gap-6 sm:gap-8">
+        <div className="h-48 sm:h-64">
           <ResponsiveContainer width="100%" height="100%">
             <BarChart data={seoAnalysis.rankingDistribution} layout="vertical">
               <XAxis type="number" hide />
@@ -326,6 +326,7 @@ const KeywordAnalysis = () => {
                 dataKey="name"
                 type="category"
                 tick={{ fill: 'var(--color-text-secondary)', fontSize: 12 }}
+                width={60}
               />
               <Tooltip
                 cursor={{ fill: 'var(--color-surface)' }}
@@ -345,12 +346,12 @@ const KeywordAnalysis = () => {
             </BarChart>
           </ResponsiveContainer>
         </div>
-        <div className="text-sm">
+        <div className="text-xs sm:text-sm">
           <ul className="space-y-2">
             {seoAnalysis.rankingDistribution.map((entry, index) => (
               <li key={`item-${index}`} className="flex items-center">
                 <span
-                  className="w-2 h-2 rounded-full mr-2"
+                  className="w-2 h-2 rounded-full mr-2 flex-shrink-0"
                   style={{ backgroundColor: COLORS[index % COLORS.length] }}
                 ></span>
                 <span className="text-text-secondary">{entry.name}:</span>
@@ -367,41 +368,41 @@ const KeywordAnalysis = () => {
 }
 
 const StrategicSummary = ({ summary }) => (
-  <div className="bg-surface border-border p-6">
-    <h3 className="font-semibold text-text-primary mb-3 text-base">
+  <div className="bg-surface border-border p-4 sm:p-6">
+    <h3 className="font-semibold text-text-primary mb-3 text-sm sm:text-base">
       Strategic Summary
     </h3>
-    <p className="text-sm text-text-secondary">{summary}</p>
+    <p className="text-xs sm:text-sm text-text-secondary leading-relaxed">{summary}</p>
   </div>
 )
 
 const MetricCard = ({ icon: Icon, label, value, caption }) => (
-  <div className="bg-surface border-border p-4">
+  <div className="bg-surface border-border p-3 sm:p-4">
     <div className="flex items-center text-primary mb-2">
-      <Icon className="w-5 h-5" />
-      <h4 className="font-semibold text-text-primary ml-2 text-sm">{label}</h4>
+      <Icon className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
+      <h4 className="font-semibold text-text-primary ml-2 text-xs sm:text-sm truncate">{label}</h4>
     </div>
-    <p className="text-2xl font-bold text-text-primary">{value}</p>
+    <p className="text-lg sm:text-2xl font-bold text-text-primary">{value}</p>
     <p className="text-xs text-text-secondary">{caption}</p>
   </div>
 )
 
 const CustomerVoice = ({ reviews }) => (
-  <div className="bg-surface border-border p-6">
-    <h3 className="font-semibold text-text-primary mb-4 text-base">
+  <div className="bg-surface border-border p-4 sm:p-6">
+    <h3 className="font-semibold text-text-primary mb-4 text-sm sm:text-base">
       Customer Voice
     </h3>
-    <div className="space-y-4">
+    <div className="space-y-3 sm:space-y-4">
       {Object.values(reviews).map((r, i) => (
         <div key={i} className="flex items-start">
-          <div className="mr-3 mt-1">
+          <div className="mr-2 sm:mr-3 mt-1 flex-shrink-0">
             {r.type === 'positive' ? (
-              <ThumbsUp className="w-4 h-4 text-green-400" />
+              <ThumbsUp className="w-3 h-3 sm:w-4 sm:h-4 text-green-400" />
             ) : (
-              <ThumbsDown className="w-4 h-4 text-red-40a0" />
+              <ThumbsDown className="w-3 h-3 sm:w-4 sm:h-4 text-red-400" />
             )}
           </div>
-          <p className="text-sm text-text-secondary italic">"{r.comment}"</p>
+          <p className="text-xs sm:text-sm text-text-secondary italic leading-relaxed">"{r.comment}"</p>
         </div>
       ))}
     </div>

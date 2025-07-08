@@ -214,34 +214,34 @@ Generated on ${new Date().toLocaleDateString()}`
     scope,
   }) => (
     <div
-      className="group flex items-center justify-between p-4 cursor-pointer hover:bg-surface/80 transition-all duration-200"
+      className="group flex items-center justify-between p-4 sm:p-6 cursor-pointer hover:bg-surface/80 transition-all duration-200"
       onClick={onToggle}
     >
-      <div className="flex items-center gap-3">
-        <div className="p-2 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
-          <Icon className="w-5 h-5 text-primary" />
+      <div className="flex items-center gap-3 sm:gap-4 min-w-0 flex-1">
+        <div className="p-2 sm:p-3 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors flex-shrink-0">
+          <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
         </div>
-        <div>
-          <h3 className="text-lg font-bold text-text-primary group-hover:text-primary transition-colors">
+        <div className="min-w-0 flex-1">
+          <h3 className="text-base sm:text-lg font-bold text-text-primary group-hover:text-primary transition-colors truncate">
             {title}
           </h3>
-          <p className="text-sm text-text-secondary">{subtitle}</p>
+          <p className="text-xs sm:text-sm text-text-secondary line-clamp-2">{subtitle}</p>
         </div>
       </div>
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0 ml-2">
         {scope && (
-          <span className="text-xs text-text-secondary font-medium px-2 py-1 bg-border/20 rounded group-hover:bg-primary/10 transition-colors">
+          <span className="hidden sm:inline text-xs text-text-secondary font-medium px-2 py-1 bg-border/20 rounded group-hover:bg-primary/10 transition-colors">
             {scope}
           </span>
         )}
-        <div className="flex items-center gap-2 px-3 py-1 bg-border/10 rounded-full group-hover:bg-primary/10 transition-colors">
-          <span className="text-xs text-text-secondary group-hover:text-primary font-medium">
+        <div className="flex items-center gap-1 sm:gap-2 px-2 sm:px-3 py-1 bg-border/10 rounded-full group-hover:bg-primary/10 transition-colors">
+          <span className="hidden sm:inline text-xs text-text-secondary group-hover:text-primary font-medium">
             {isExpanded ? 'Hide' : 'Show'} details
           </span>
           {isExpanded ? (
-            <ChevronDown className="w-4 h-4 text-text-secondary group-hover:text-primary transition-colors" />
+            <ChevronDown className="w-4 h-4 sm:w-5 sm:h-5 text-text-secondary group-hover:text-primary transition-colors" />
           ) : (
-            <ChevronRight className="w-4 h-4 text-text-secondary group-hover:text-primary transition-colors" />
+            <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 text-text-secondary group-hover:text-primary transition-colors" />
           )}
         </div>
       </div>
@@ -252,19 +252,19 @@ Generated on ${new Date().toLocaleDateString()}`
   const tier2Competitors = competitors.filter((c) => c.tier === 'Tier 2')
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4 sm:space-y-6">
       {/* Report Actions */}
-      <div className="flex justify-end items-center gap-2">
+      <div className="flex flex-col sm:flex-row justify-end items-stretch sm:items-center gap-2">
         <button
           onClick={() => setShowReport(true)}
-          className="flex items-center gap-2 px-3 py-1.5 text-sm text-text-secondary hover:text-text-primary border border-border hover:border-primary/50 rounded-md transition-colors"
+          className="flex items-center justify-center gap-2 px-3 py-2 sm:py-1.5 text-sm text-text-secondary hover:text-text-primary border border-border hover:border-primary/50 rounded-md transition-colors"
         >
           <Eye className="w-4 h-4" />
           View Report
         </button>
         <button
           onClick={exportToMarkdown}
-          className="flex items-center gap-2 px-3 py-1.5 text-sm text-text-secondary hover:text-text-primary border border-border hover:border-primary/50 rounded-md transition-colors"
+          className="flex items-center justify-center gap-2 px-3 py-2 sm:py-1.5 text-sm text-text-secondary hover:text-text-primary border border-border hover:border-primary/50 rounded-md transition-colors"
         >
           <Download className="w-4 h-4" />
           Export
@@ -282,10 +282,10 @@ Generated on ${new Date().toLocaleDateString()}`
         />
 
         {expandedSections.overview && (
-          <div className="border-t border-border p-6">
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-              <div className="lg:col-span-2">
-                <div className="bg-background border border-border h-full overflow-hidden rounded-lg">
+          <div className="border-t border-border p-4 sm:p-6">
+            <div className="grid grid-cols-1 xl:grid-cols-3 gap-4 sm:gap-6">
+              <div className="xl:col-span-2">
+                <div className="bg-background border border-border h-64 sm:h-80 lg:h-96 overflow-hidden rounded-lg">
                   <MapContainer
                     center={mapCenter}
                     zoom={mapZoom}
@@ -320,17 +320,17 @@ Generated on ${new Date().toLocaleDateString()}`
                 </div>
               </div>
 
-              <div className="lg:col-span-1">
-                <div className="bg-background border border-border p-6 rounded-lg">
+              <div className="xl:col-span-1">
+                <div className="bg-background border border-border p-4 sm:p-6 rounded-lg">
                   <div className="space-y-4">
-                    <div className="bg-primary/10 border border-primary/20 p-4 rounded-lg">
+                    <div className="bg-primary/10 border border-primary/20 p-3 sm:p-4 rounded-lg">
                       <div className="flex items-center gap-2 mb-2">
-                        <Coffee className="w-5 h-5 text-primary" />
-                        <h5 className="font-bold text-text-primary">
+                        <Coffee className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
+                        <h5 className="text-sm sm:text-base font-bold text-text-primary">
                           Lookout Coffee
                         </h5>
                       </div>
-                      <div className="text-sm text-text-secondary space-y-1">
+                      <div className="text-xs sm:text-sm text-text-secondary space-y-1">
                         <p>
                           SEO Rank: #{ourCafe.seoPerformance.localSearchRank}
                         </p>
@@ -345,16 +345,16 @@ Generated on ${new Date().toLocaleDateString()}`
                     </div>
 
                     <div className="space-y-3">
-                      <h5 className="font-semibold text-text-primary">
+                      <h5 className="text-sm sm:text-base font-semibold text-text-primary">
                         Key Competitors
                       </h5>
                       {competitors.map((competitor) => (
                         <div
                           key={competitor.name}
-                          className="flex items-center justify-between p-3 bg-surface border border-border rounded-lg"
+                          className="flex items-center justify-between p-2 sm:p-3 bg-surface border border-border rounded-lg"
                         >
-                          <div>
-                            <h6 className="font-medium text-text-primary text-sm">
+                          <div className="min-w-0">
+                            <h6 className="font-medium text-text-primary text-xs sm:text-sm truncate">
                               {competitor.name}
                             </h6>
                             <div className="flex items-center gap-2 text-xs text-text-secondary">
@@ -364,11 +364,11 @@ Generated on ${new Date().toLocaleDateString()}`
                               </span>
                             </div>
                           </div>
-                          <div className="flex items-center gap-1">
+                          <div className="flex items-center gap-1 flex-shrink-0">
                             {React.createElement(
                               getThreatLevelIcon(competitor.threatLevel),
                               {
-                                className: `w-4 h-4 ${getThreatLevelColor(competitor.threatLevel)}`,
+                                className: `w-3 h-3 sm:w-4 sm:h-4 ${getThreatLevelColor(competitor.threatLevel)}`,
                               }
                             )}
                             <span
@@ -400,76 +400,76 @@ Generated on ${new Date().toLocaleDateString()}`
         />
 
         {expandedSections.tier1 && (
-          <div className="border-t border-border p-6">
-            <div className="space-y-6">
+          <div className="border-t border-border p-4 sm:p-6">
+            <div className="space-y-4 sm:space-y-6">
               {tier1Competitors.map((competitor) => (
                 <div
                   key={competitor.name}
-                  className="bg-background border border-border rounded-lg p-6"
+                  className="bg-background border border-border rounded-lg p-4 sm:p-6"
                 >
-                  <div className="flex items-start justify-between mb-4">
+                  <div className="flex flex-col sm:flex-row sm:items-start justify-between mb-4 gap-3">
                     <div className="flex items-center gap-3">
                       <div className="p-2 bg-red-400/10 rounded-lg">
                         {React.createElement(
                           getThreatLevelIcon(competitor.threatLevel),
                           {
-                            className: `w-5 h-5 ${getThreatLevelColor(competitor.threatLevel)}`,
+                            className: `w-4 h-4 sm:w-5 sm:h-5 ${getThreatLevelColor(competitor.threatLevel)}`,
                           }
                         )}
                       </div>
-                      <div>
-                        <h4 className="text-lg font-bold text-text-primary">
+                      <div className="min-w-0">
+                        <h4 className="text-base sm:text-lg font-bold text-text-primary">
                           {competitor.name}
                         </h4>
-                        <div className="flex items-center gap-4 text-sm text-text-secondary">
+                        <div className="flex flex-wrap items-center gap-3 sm:gap-4 text-xs sm:text-sm text-text-secondary">
                           <span className="flex items-center gap-1">
-                            <Star className="w-4 h-4 text-accent-400" />
+                            <Star className="w-3 h-3 sm:w-4 sm:h-4 text-accent-400" />
                             {competitor.rating}
                           </span>
                           <span className="flex items-center gap-1">
-                            <Users className="w-4 h-4" />
+                            <Users className="w-3 h-3 sm:w-4 sm:h-4" />
                             {competitor.reviewCount} reviews
                           </span>
                           <span className="flex items-center gap-1">
-                            <MapPin className="w-4 h-4" />
+                            <MapPin className="w-3 h-3 sm:w-4 sm:h-4" />
                             {competitor.distance}
                           </span>
                         </div>
                       </div>
                     </div>
                     <span
-                      className={`px-3 py-1 rounded-full text-xs font-medium ${getThreatLevelColor(competitor.threatLevel)} bg-current/10`}
+                      className={`px-2 sm:px-3 py-1 rounded-full text-xs font-medium ${getThreatLevelColor(competitor.threatLevel)} bg-current/10 flex-shrink-0`}
                     >
                       {competitor.threatLevel} THREAT
                     </span>
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
                     <div className="space-y-4">
                       <div>
-                        <h5 className="font-semibold text-text-primary mb-2">
+                        <h5 className="text-sm sm:text-base font-semibold text-text-primary mb-2">
                           Digital Performance
                         </h5>
-                        <div className="grid grid-cols-2 gap-3">
-                          <div className="bg-surface border border-border p-3 rounded-lg">
+                        <div className="grid grid-cols-2 gap-2 sm:gap-3">
+                          <div className="bg-surface border border-border p-2 sm:p-3 rounded-lg">
                             <div className="flex items-center gap-2 mb-1">
-                              <Search className="w-4 h-4 text-primary" />
+                              <Search className="w-3 h-3 sm:w-4 sm:h-4 text-primary" />
                               <span className="text-xs text-text-secondary">
                                 Keywords
                               </span>
                             </div>
-                            <p className="text-lg font-bold text-text-primary">
+                            <p className="text-sm sm:text-lg font-bold text-text-primary">
                               {competitor.seoPerformance.organicKeywords}
                             </p>
                           </div>
-                          <div className="bg-surface border border-border p-3 rounded-lg">
+                          <div className="bg-surface border border-border p-2 sm:p-3 rounded-lg">
                             <div className="flex items-center gap-2 mb-1">
-                              <DollarSign className="w-4 h-4 text-accent-400" />
+                              <DollarSign className="w-3 h-3 sm:w-4 sm:h-4 text-accent-400" />
                               <span className="text-xs text-text-secondary">
                                 Traffic Value
                               </span>
                             </div>
-                            <p className="text-lg font-bold text-text-primary">
+                            <p className="text-sm sm:text-lg font-bold text-text-primary">
                               {competitor.seoPerformance.estimatedTrafficValue}
                             </p>
                           </div>
@@ -477,12 +477,12 @@ Generated on ${new Date().toLocaleDateString()}`
                       </div>
 
                       <div>
-                        <h5 className="font-semibold text-text-primary mb-2">
+                        <h5 className="text-sm sm:text-base font-semibold text-text-primary mb-2">
                           Key Threat
                         </h5>
                         <div className="flex items-start gap-2">
                           <AlertTriangle className="w-4 h-4 text-red-400 mt-0.5 flex-shrink-0" />
-                          <p className="text-sm text-text-secondary">
+                          <p className="text-xs sm:text-sm text-text-secondary">
                             {competitor.keyThreat}
                           </p>
                         </div>
@@ -491,19 +491,19 @@ Generated on ${new Date().toLocaleDateString()}`
 
                     <div className="space-y-4">
                       <div>
-                        <h5 className="font-semibold text-text-primary mb-2">
+                        <h5 className="text-sm sm:text-base font-semibold text-text-primary mb-2">
                           Opportunity
                         </h5>
                         <div className="flex items-start gap-2">
                           <Lightbulb className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
-                          <p className="text-sm text-text-secondary">
+                          <p className="text-xs sm:text-sm text-text-secondary">
                             {competitor.keyOpportunity}
                           </p>
                         </div>
                       </div>
 
                       <div>
-                        <h5 className="font-semibold text-text-primary mb-2">
+                        <h5 className="text-sm sm:text-base font-semibold text-text-primary mb-2">
                           Customer Sentiment
                         </h5>
                         <div className="space-y-2">
@@ -511,7 +511,7 @@ Generated on ${new Date().toLocaleDateString()}`
                             <span className="text-xs text-green-400 font-medium">
                               Praised for:
                             </span>
-                            <p className="text-sm text-text-secondary">
+                            <p className="text-xs sm:text-sm text-text-secondary">
                               {competitor.sentiment.positive.join(', ')}
                             </p>
                           </div>
@@ -519,7 +519,7 @@ Generated on ${new Date().toLocaleDateString()}`
                             <span className="text-xs text-red-400 font-medium">
                               Criticized for:
                             </span>
-                            <p className="text-sm text-text-secondary">
+                            <p className="text-xs sm:text-sm text-text-secondary">
                               {competitor.sentiment.negative.join(', ')}
                             </p>
                           </div>
@@ -546,19 +546,19 @@ Generated on ${new Date().toLocaleDateString()}`
         />
 
         {expandedSections.tier2 && (
-          <div className="border-t border-border p-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="border-t border-border p-4 sm:p-6">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
               {tier2Competitors.map((competitor) => (
                 <div
                   key={competitor.name}
                   className="bg-background border border-border rounded-lg p-4"
                 >
                   <div className="flex items-start justify-between mb-3">
-                    <div>
-                      <h4 className="font-bold text-text-primary">
+                    <div className="min-w-0 flex-1">
+                      <h4 className="text-sm sm:text-base font-bold text-text-primary truncate">
                         {competitor.name}
                       </h4>
-                      <div className="flex items-center gap-3 text-sm text-text-secondary">
+                      <div className="flex items-center gap-3 text-xs sm:text-sm text-text-secondary">
                         <span className="flex items-center gap-1">
                           <Star className="w-3 h-3 text-accent-400" />
                           {competitor.rating}
@@ -567,16 +567,16 @@ Generated on ${new Date().toLocaleDateString()}`
                       </div>
                     </div>
                     <span
-                      className={`px-2 py-1 rounded-full text-xs font-medium ${getThreatLevelColor(competitor.threatLevel)} bg-current/10`}
+                      className={`px-2 py-1 rounded-full text-xs font-medium ${getThreatLevelColor(competitor.threatLevel)} bg-current/10 flex-shrink-0`}
                     >
                       {competitor.threatLevel}
                     </span>
                   </div>
-                  <p className="text-sm text-text-secondary mb-3">
+                  <p className="text-xs sm:text-sm text-text-secondary mb-3">
                     {competitor.productFocus}
                   </p>
-                  <div className="text-sm">
-                    <p className="text-text-secondary mb-1">
+                  <div className="text-xs sm:text-sm space-y-2">
+                    <p className="text-text-secondary">
                       <strong>Key Threat:</strong> {competitor.keyThreat}
                     </p>
                     <p className="text-text-secondary">
@@ -602,9 +602,9 @@ Generated on ${new Date().toLocaleDateString()}`
         />
 
         {expandedSections.seo && (
-          <div className="border-t border-border p-6">
-            <div className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="border-t border-border p-4 sm:p-6">
+            <div className="space-y-4 sm:space-y-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 <MetricCard
                   title="Lookout Keywords"
                   value={ourCafe.seoPerformance.organicKeywords}
@@ -631,12 +631,12 @@ Generated on ${new Date().toLocaleDateString()}`
                 />
               </div>
 
-              <div className="bg-background border border-border rounded-lg p-6">
-                <h4 className="text-lg font-semibold text-text-primary mb-4">
+              <div className="bg-background border border-border rounded-lg p-4 sm:p-6">
+                <h4 className="text-base sm:text-lg font-semibold text-text-primary mb-4">
                   SEO Competitive Landscape
                 </h4>
                 <div className="overflow-x-auto">
-                  <table className="w-full text-sm">
+                  <table className="w-full text-xs sm:text-sm min-w-[640px]">
                     <thead>
                       <tr className="border-b border-border">
                         <th className="text-left py-2 text-text-secondary">
@@ -715,38 +715,38 @@ Generated on ${new Date().toLocaleDateString()}`
         />
 
         {expandedSections.recommendations && (
-          <div className="border-t border-border p-6">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="bg-background border border-border rounded-lg p-6">
+          <div className="border-t border-border p-4 sm:p-6">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
+              <div className="bg-background border border-border rounded-lg p-4 sm:p-6">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="p-2 bg-green-400/10 rounded-lg">
-                    <Zap className="w-5 h-5 text-green-400" />
+                    <Zap className="w-4 h-4 sm:w-5 sm:h-5 text-green-400" />
                   </div>
-                  <h4 className="font-bold text-text-primary">
+                  <h4 className="text-sm sm:text-base font-bold text-text-primary">
                     Immediate (0-3 months)
                   </h4>
                 </div>
-                <ul className="space-y-3 text-sm">
+                <ul className="space-y-3 text-xs sm:text-sm">
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
+                    <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 text-green-400 mt-0.5 flex-shrink-0" />
                     <span className="text-text-secondary">
                       Optimize Google Business Profile with photos and posts
                     </span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
+                    <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 text-green-400 mt-0.5 flex-shrink-0" />
                     <span className="text-text-secondary">
                       Launch weekly blog content about coffee education
                     </span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
+                    <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 text-green-400 mt-0.5 flex-shrink-0" />
                     <span className="text-text-secondary">
                       Increase social media posting frequency
                     </span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
+                    <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 text-green-400 mt-0.5 flex-shrink-0" />
                     <span className="text-text-secondary">
                       Build local citations and directory listings
                     </span>
@@ -754,36 +754,36 @@ Generated on ${new Date().toLocaleDateString()}`
                 </ul>
               </div>
 
-              <div className="bg-background border border-border rounded-lg p-6">
+              <div className="bg-background border border-border rounded-lg p-4 sm:p-6">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="p-2 bg-accent-400/10 rounded-lg">
-                    <Target className="w-5 h-5 text-accent-400" />
+                    <Target className="w-4 h-4 sm:w-5 sm:h-5 text-accent-400" />
                   </div>
-                  <h4 className="font-bold text-text-primary">
+                  <h4 className="text-sm sm:text-base font-bold text-text-primary">
                     Medium-term (3-6 months)
                   </h4>
                 </div>
-                <ul className="space-y-3 text-sm">
+                <ul className="space-y-3 text-xs sm:text-sm">
                   <li className="flex items-start gap-2">
-                    <Target className="w-4 h-4 text-accent-400 mt-0.5 flex-shrink-0" />
+                    <Target className="w-3 h-3 sm:w-4 sm:h-4 text-accent-400 mt-0.5 flex-shrink-0" />
                     <span className="text-text-secondary">
                       Add breakfast sandwiches to compete with Living Room
                     </span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <Target className="w-4 h-4 text-accent-400 mt-0.5 flex-shrink-0" />
+                    <Target className="w-3 h-3 sm:w-4 sm:h-4 text-accent-400 mt-0.5 flex-shrink-0" />
                     <span className="text-text-secondary">
                       Implement online ordering system
                     </span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <Target className="w-4 h-4 text-accent-400 mt-0.5 flex-shrink-0" />
+                    <Target className="w-3 h-3 sm:w-4 sm:h-4 text-accent-400 mt-0.5 flex-shrink-0" />
                     <span className="text-text-secondary">
                       Launch customer loyalty program
                     </span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <Target className="w-4 h-4 text-accent-400 mt-0.5 flex-shrink-0" />
+                    <Target className="w-3 h-3 sm:w-4 sm:h-4 text-accent-400 mt-0.5 flex-shrink-0" />
                     <span className="text-text-secondary">
                       Host monthly coffee education events
                     </span>
@@ -791,36 +791,36 @@ Generated on ${new Date().toLocaleDateString()}`
                 </ul>
               </div>
 
-              <div className="bg-background border border-border rounded-lg p-6">
+              <div className="bg-background border border-border rounded-lg p-4 sm:p-6">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="p-2 bg-primary/10 rounded-lg">
-                    <TrendingUp className="w-5 h-5 text-primary" />
+                    <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
                   </div>
-                  <h4 className="font-bold text-text-primary">
+                  <h4 className="text-sm sm:text-base font-bold text-text-primary">
                     Long-term (6+ months)
                   </h4>
                 </div>
-                <ul className="space-y-3 text-sm">
+                <ul className="space-y-3 text-xs sm:text-sm">
                   <li className="flex items-start gap-2">
-                    <TrendingUp className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                    <TrendingUp className="w-3 h-3 sm:w-4 sm:h-4 text-primary mt-0.5 flex-shrink-0" />
                     <span className="text-text-secondary">
                       Consider second location expansion
                     </span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <TrendingUp className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                    <TrendingUp className="w-3 h-3 sm:w-4 sm:h-4 text-primary mt-0.5 flex-shrink-0" />
                     <span className="text-text-secondary">
                       Develop signature drink recipes
                     </span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <TrendingUp className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                    <TrendingUp className="w-3 h-3 sm:w-4 sm:h-4 text-primary mt-0.5 flex-shrink-0" />
                     <span className="text-text-secondary">
                       Launch mobile app with ordering
                     </span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <TrendingUp className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                    <TrendingUp className="w-3 h-3 sm:w-4 sm:h-4 text-primary mt-0.5 flex-shrink-0" />
                     <span className="text-text-secondary">
                       Explore corporate catering services
                     </span>
@@ -834,30 +834,30 @@ Generated on ${new Date().toLocaleDateString()}`
 
       {/* Report Modal */}
       {showReport && (
-        <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/50 backdrop-blur-sm">
+        <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">
           <div className="bg-surface border border-border rounded-lg shadow-xl w-full max-w-6xl max-h-[90vh] flex flex-col">
             <div className="flex items-center justify-between p-4 border-b border-border">
-              <div className="flex items-center gap-3">
-                <FileText className="w-5 h-5 text-primary" />
-                <h3 className="text-lg font-semibold text-text-primary">
+              <div className="flex items-center gap-3 min-w-0">
+                <FileText className="w-5 h-5 text-primary flex-shrink-0" />
+                <h3 className="text-base sm:text-lg font-semibold text-text-primary truncate">
                   Competitor Intelligence Report
                 </h3>
               </div>
               <button
                 onClick={() => setShowReport(false)}
-                className="p-2 hover:bg-border/50 rounded-md transition-colors"
+                className="p-2 hover:bg-border/50 rounded-md transition-colors flex-shrink-0"
               >
                 <X className="w-5 h-5 text-text-secondary" />
               </button>
             </div>
-            <div className="flex-1 overflow-y-auto p-6">
+            <div className="flex-1 overflow-y-auto p-4 sm:p-6">
               <div className="prose prose-sm max-w-none">
-                <div className="whitespace-pre-wrap text-text-secondary leading-relaxed">
+                <div className="whitespace-pre-wrap text-xs sm:text-sm text-text-secondary leading-relaxed">
                   {generateMarkdownReport()}
                 </div>
               </div>
             </div>
-            <div className="flex items-center justify-end gap-2 p-4 border-t border-border">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-end gap-2 p-4 border-t border-border">
               <button
                 onClick={() => setShowReport(false)}
                 className="px-4 py-2 text-sm text-text-secondary hover:text-text-primary border border-border hover:border-primary/50 rounded-md transition-colors"
@@ -866,7 +866,7 @@ Generated on ${new Date().toLocaleDateString()}`
               </button>
               <button
                 onClick={exportToMarkdown}
-                className="flex items-center gap-2 px-4 py-2 text-sm bg-primary text-on-primary rounded-md hover:opacity-90 transition-opacity"
+                className="flex items-center justify-center gap-2 px-4 py-2 text-sm bg-primary text-on-primary rounded-md hover:opacity-90 transition-opacity"
               >
                 <Download className="w-4 h-4" />
                 Export Report
