@@ -209,7 +209,7 @@ const GrowthTab = () => {
 
   const sampleGoals = [
     'Increase foot traffic',
-    'Boost online orders', 
+    'Boost online orders',
     'Improve customer loyalty',
     'Enhance brand awareness',
   ]
@@ -251,12 +251,12 @@ const GrowthTab = () => {
         </div>
 
         <div className="flex flex-col sm:flex-row items-center gap-4 w-full max-w-md">
-          <button
+            <button
             onClick={() => setShowCustomForm(false)}
             className="w-full sm:w-auto px-6 py-3 bg-surface text-text-primary rounded-lg font-bold transition hover:bg-border"
-          >
-            Cancel
-          </button>
+            >
+              Cancel
+            </button>
           <button
             disabled={true}
             className="w-full sm:w-auto px-6 py-3 bg-gray-400 text-gray-600 rounded-lg font-bold cursor-not-allowed transition"
@@ -304,20 +304,20 @@ const GrowthTab = () => {
             {/* Desktop: Vertical list */}
             <div className="hidden lg:block space-y-2">
               {Object.values(predefinedGoals).map((goal) => (
-                <button
+              <button
                   key={goal.id}
                   onClick={() => setActiveGoal(goal.id)}
-                  className={`w-full text-left p-4 rounded-lg transition ${
+                className={`w-full text-left p-4 rounded-lg transition ${
                     activeGoal === goal.id
-                      ? 'bg-surface'
-                      : 'hover:bg-surface/50'
-                  }`}
-                >
+                    ? 'bg-surface'
+                    : 'hover:bg-surface/50'
+                }`}
+              >
                   <p className="font-medium text-text-primary">
                     {goal.title}
-                  </p>
-                </button>
-              ))}
+                </p>
+              </button>
+            ))}
             </div>
           </div>
         </div>

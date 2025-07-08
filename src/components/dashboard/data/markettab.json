@@ -1,0 +1,265 @@
+{
+  "executiveSummary": "This report provides a market intelligence overview for Lookout Coffee for July 2025. Key insights indicate a mixed but opportunistic local environment. Locally, a surge in community events within a 5-mile radius, particularly the Campbell Summer Concert Series, presents a significant opportunity to capture increased foot traffic. However, this is set against a backdrop of local economic uncertainty due to a city budget deficit and rising living costs. Regionally, within a 30-mile radius, fare hikes on public transit may impact commuter habits, while a resilient, experience-seeking affluent consumer base continues to prioritize quality. At the macro level, falling commodity prices for coffee and milk offer a potential cost advantage, though overall consumer spending shows signs of slowing. Social media trends emphasize authenticity, community-building, and visually appealing, wellness-focused products. The primary recommendation for July is to leverage the local event calendar with targeted promotions and to highlight quality and community on social media to attract and retain a discerning customer base.",
+  "fiveMileRadius": {
+    "title": "5-Mile Radius Market Intelligence: Campbell, CA",
+    "summary": "The immediate 5-mile radius around Lookout Coffee in July is characterized by a vibrant community events calendar, creating significant opportunities for increased customer traffic. However, economic pressures, including high rental costs and a local government budget deficit, may temper consumer spending. The stable, yet car-dependent, commuter demographic remains a core customer base.",
+    "economicTrends": {
+      "title": "July Economic Trends: Navigating Local Economic Headwinds",
+      "summary": "The local Campbell economy in July shows signs of strain. A lawsuit over Measure K funds has led to a city hiring freeze, creating a sense of fiscal uncertainty. While the local job market remains stable, the high and rising cost of living, particularly rent, continues to pressure household discretionary spending. These factors suggest that while customers will still seek out premium coffee experiences, they may be more price-conscious.",
+      "metricCards": [
+        {
+          "title": "Campbell One-Bedroom Average Rent",
+          "metric": "$2,671",
+          "keyChange": "Up 2.5% from June 2025 ($2,606)"
+        },
+        {
+          "title": "Campbell Unemployment Rate",
+          "metric": "3.8% (May 2025)",
+          "keyChange": "Stable from April 2025. Note: National unemployment rose to 4.1% in June, suggesting potential for a slight local increase."
+        }
+      ],
+      "threats": [
+        "Increased cost of living, particularly rent, may reduce discretionary spending on items like specialty coffee.",
+        "Uncertainty around the city's budget could negatively impact local consumer confidence."
+      ],
+      "opportunities": [
+        "Position Lookout Coffee as an affordable luxury or a worthwhile daily ritual, emphasizing the quality and experience for the price.",
+        "Offer loyalty programs or daily specials to retain price-sensitive customers."
+      ]
+    },
+    "culturalTrends": {
+      "title": "July Cultural Trends: A Surge in Community Events",
+      "summary": "July presents a significant increase in local cultural and community events compared to June. The weekly Campbell Summer Concert Series, held on Thursdays, is the cornerstone event, promising to draw large crowds to the downtown area. The ongoing Farmers' Market and various one-off events will further boost foot traffic, creating a lively atmosphere throughout the month.",
+      "metricCards": [
+        {
+          "title": "Major Community Events in July",
+          "metric": "4+ major weekly/bi-weekly events (Summer Concert Series, Farmers' Market, Relay for Life, etc.)",
+          "keyChange": "Significant increase from June's event calendar, with the addition of the major weekly concert series."
+        },
+        {
+          "title": "Campbell Summer Concert Series",
+          "metric": "Weekly on Thursdays, starting July 10th",
+          "keyChange": "New major weekly event series for July, expected to draw significant crowds."
+        }
+      ],
+      "threats": [
+        "Increased traffic and parking challenges around downtown Campbell during major events could deter some customers.",
+        "Other local businesses will also be competing for the attention and dollars of event attendees."
+      ],
+      "opportunities": [
+        "Create special 'pre-concert' or 'post-Farmers' Market' promotions to attract event-goers.",
+        "Market specialty iced beverages or easy-to-carry snacks targeted at attendees of outdoor events.",
+        "Extend hours on Thursdays to capture the evening concert crowd."
+      ]
+    },
+    "demographicTrends": {
+      "title": "July Demographic Trends: The Commuter Customer",
+      "summary": "The demographic profile of the immediate area remains stable, characterized by a significant population of professionals who commute to work, primarily by car. This demographic values convenience and quality, often incorporating a coffee stop into their daily routine. There are no significant demographic shifts expected from June to July.",
+      "metricCards": [
+        {
+          "title": "Average Commute Time",
+          "metric": "23.7 minutes",
+          "keyChange": "No significant month-over-month change expected."
+        },
+        {
+          "title": "Primary Mode of Commute",
+          "metric": "Approximately 80% drive alone",
+          "keyChange": "No significant month-over-month change expected."
+        }
+      ],
+      "threats": [
+        "The car-dependent nature of the customer base means that parking availability is a critical factor.",
+        "Any major disruptions to local traffic patterns could impact business."
+      ],
+      "opportunities": [
+        "Continue to offer efficient service for commuters on a tight schedule.",
+        "Promote online ordering for quick pickup to appeal to this demographic.",
+        "Engage this audience through commuter-themed social media content."
+      ]
+    }
+  },
+  "thirtyMileRadius": {
+    "title": "30-Mile Radius Market Intelligence: Silicon Valley Dynamics",
+    "summary": "The broader 30-mile radius, encompassing much of Silicon Valley, is influenced by shifts in the tech sector, regional transportation costs, and a strong consumer preference for experiences. While the housing market shows slight cooling, the overall affluence of the region remains high. Key cultural events in San Jose will draw customers from across the South Bay.",
+    "economicTrends": {
+      "title": "July Economic Trends: Regional Transit and Tech Sector Shifts",
+      "summary": "The regional economy is marked by a significant change in transportation costs, with Caltrain and VTA fares increasing as of July 1st. This could influence the commuting habits of some customers. The tech sector, the engine of the regional economy, is stable but undergoing shifts, with some companies announcing budget cuts while others expand into new areas. The housing market, while still expensive, saw a slight decrease in median price from May to June, though it remains significantly up year-over-year.",
+      "metricCards": [
+        {
+          "title": "Caltrain & VTA Fare Increase",
+          "metric": "Various fare increases implemented",
+          "keyChange": "Effective July 1, 2025. This is a new cost for commuters this month."
+        },
+        {
+          "title": "Silicon Valley Median Home Price (Santa Clara County)",
+          "metric": "$1.91 Million (June 2025)",
+          "keyChange": "Down 2.3% from May 2025, but up 9% from June 2024."
+        }
+      ],
+      "threats": [
+        "Increased public transit fares could slightly reduce the disposable income of some commuters.",
+        "A cooling housing market and tech sector budget cuts could lead to a more cautious consumer mindset."
+      ],
+      "opportunities": [
+        "Position Lookout Coffee as a destination worth the commute or a hub for remote workers.",
+        "The continued affluence of the region supports a market for high-quality, premium products.",
+        "Emphasize the value of a community space for connection in a potentially more cost-conscious environment."
+      ]
+    },
+    "culturalTrends": {
+      "title": "July Cultural Trends: Downtown San Jose Activations",
+      "summary": "The cultural landscape in July is highlighted by major events in San Jose, most notably the 'Dine Downtown' restaurant week. This event will create a buzz around the regional dining scene and draw food-focused consumers. This follows a major food festival in late June, indicating a sustained interest in culinary experiences throughout the summer.",
+      "metricCards": [
+        {
+          "title": "San Jose 'Dine Downtown' Event",
+          "metric": "11-day event (July 3-13)",
+          "keyChange": "New major regional dining event for July, shifting the focus from festivals to restaurant experiences."
+        },
+        {
+          "title": "4th of July Celebrations",
+          "metric": "Multiple fireworks shows and events across Santa Clara County",
+          "keyChange": "Significant one-time cultural event specific to the first week of July."
+        }
+      ],
+      "threats": [
+        "Events in San Jose could draw potential customers away from Campbell on those specific days/evenings.",
+        "The 'Dine Downtown' event creates direct competition for dining and beverage spending."
+      ],
+      "opportunities": [
+        "Partner with a local Campbell restaurant to create a joint promotion during the 'Dine Downtown' period.",
+        "Run a social media campaign positioning Lookout as the perfect start to a day of exploring regional events.",
+        "Create a special, patriotic-themed beverage or pastry for the 4th of July week."
+      ]
+    },
+    "demographicTrends": {
+      "title": "July Demographic Trends: The Affluent, Experience-Seeking Consumer",
+      "summary": "The broader Silicon Valley demographic is characterized by a high concentration of affluent consumers who, despite economic uncertainties, continue to prioritize spending on experiences over material goods. This group is tech-savvy, well-informed, and values quality and authenticity. The stability of the tech sector, despite some high-profile budget cuts, ensures that this core demographic remains a powerful economic force.",
+      "metricCards": [
+        {
+          "title": "Regional Consumer Spending Intent (Affluent Consumers)",
+          "metric": "Prioritizing experiences (dining, travel, events) over goods",
+          "keyChange": "This trend has been sustained and is a defining characteristic of the summer 2025 season."
+        },
+        {
+          "title": "Tech Sector Employment",
+          "metric": "Generally stable",
+          "keyChange": "No major month-over-month change in overall employment, though specific company news (e.g., Stanford cuts) indicates some volatility."
+        }
+      ],
+      "threats": [
+        "This demographic has high expectations for quality, service, and ambiance, requiring consistent excellence.",
+        "Competition for their 'experience' dollars is fierce, coming from restaurants, bars, and entertainment venues."
+      ],
+      "opportunities": [
+        "Your brand's focus on being present and fostering connection aligns perfectly with this demographic's values.",
+        "Highlight the quality of your single-origin beans and in-house syrups to appeal to their discerning tastes.",
+        "Host events like coffee tastings or 'meet the roaster' nights to provide a unique experience."
+      ]
+    }
+  },
+  "macroMarketTrends": {
+    "title": "Macro Market Trends: Commodity Volatility and Consumer Caution",
+    "summary": "At the macro level, July is marked by significant volatility in key commodity markets, with the prices of coffee and milk seeing notable decreases from June. This presents a potential cost-saving opportunity. However, national economic indicators suggest a slight cooling, with a small rise in unemployment and slowing retail sales, indicating that consumers nationally are becoming more cautious with their spending.",
+    "economicTrends": {
+      "title": "July Economic Trends: Commodity Price Drops and Shifting Consumer Behavior",
+      "summary": "A key development for the coffee industry in July is the significant drop in global coffee and milk prices. After months of high costs, this downward trend could provide some relief on the cost of goods sold. This is juxtaposed with a national picture of slowing consumer spending and a slight uptick in unemployment, suggesting that while input costs may be decreasing, consumer demand may not be as robust as in previous months.",
+      "metricCards": [
+        {
+          "title": "ICO Coffee Composite Price (I-CIP)",
+          "metric": "295.06 US cents/lb (June 2025)",
+          "keyChange": "Down 11.8% from May 2025, with further volatility and potential leveling expected in July."
+        },
+        {
+          "title": "Global Dairy Trade (GDT) Index",
+          "metric": "Down 4.1% in the first week of July",
+          "keyChange": "A significant drop from June levels, indicating lower milk costs."
+        }
+      ],
+      "threats": [
+        "While commodity prices are falling, supplier contracts may have locked in higher prices, delaying any cost benefits.",
+        "The broader trend of slowing consumer spending could eventually impact traffic and sales, even in affluent areas."
+      ],
+      "opportunities": [
+        "The drop in coffee and milk prices, if accessible, could improve profit margins on core menu items.",
+        "This could be an opportunity to absorb other rising costs (like labor or rent) without passing them on to the customer, creating a competitive advantage.",
+        "Consider running promotions on milk-heavy drinks like lattes to pass savings on to customers and drive volume."
+      ]
+    },
+    "culturalTrends": {
+      "title": "July Cultural Trends: The Rise of Wellness and Sustainable Consumption",
+      "summary": "Two powerful cultural currents are converging in the food and beverage sector: a growing consumer demand for products that support wellness, and a heightened awareness of sustainability and ethical sourcing. Consumers, particularly younger demographics, are increasingly making purchasing decisions based on these values. This is a continuation and acceleration of trends seen in the first half of the year.",
+      "metricCards": [
+        {
+          "title": "Consumer Interest in Sustainable Sourcing",
+          "metric": "High and increasing, particularly among Millennial and Gen Z consumers.",
+          "keyChange": "This has moved from a niche interest to a mainstream expectation in 2025."
+        },
+        {
+          "title": "Demand for Functional Beverages",
+          "metric": "Strong growth in products featuring wellness ingredients like adaptogens, mushrooms, and floral elements.",
+          "keyChange": "Accelerating trend from Q2 2025, becoming more prevalent on cafe menus."
+        }
+      ],
+      "threats": [
+        "Not communicating your sustainability practices can be a missed opportunity and could be perceived negatively.",
+        "The wellness trend requires research and development to create authentic and appealing products."
+      ],
+      "opportunities": [
+        "Showcase your single-origin coffees and any direct trade relationships to highlight your commitment to ethical sourcing.",
+        "Develop and market a limited-time 'wellness latte' or specialty tea with functional ingredients.",
+        "Use social media to tell the story behind your ingredients, appealing to consumer desire for transparency."
+      ]
+    },
+    "demographicTrends": {
+      "title": "July Demographic Trends: The Health-Conscious and Digitally-Native Consumer",
+      "summary": "The national demographic landscape reflects a consumer who is increasingly health-conscious and digitally integrated into their purchasing habits. While the national unemployment rate saw a slight increase, indicating some economic fragility, spending on food away from home continues, albeit with more price sensitivity. This customer is likely to research menus online, be influenced by social media, and seek out options that align with their personal health and wellness goals.",
+      "metricCards": [
+        {
+          "title": "U.S. National Unemployment Rate",
+          "metric": "4.1% (June 2025)",
+          "keyChange": "Slight increase from 4.0% in May 2025."
+        },
+        {
+          "title": "Consumer Price Index: Food Away From Home (SF-Oakland-Hayward)",
+          "metric": "Up 0.3% (for the two months ending in April 2025)",
+          "keyChange": "Indicates continued, albeit slow, price increases in the restaurant sector, suggesting operators are still passing on costs."
+        }
+      ],
+      "threats": [
+        "A slight rise in national unemployment can contribute to a general feeling of economic anxiety, impacting spending.",
+        "Consumers may be more critical of price increases for dining out."
+      ],
+      "opportunities": [
+        "Highlighting the health benefits of coffee or offering lighter, healthier food options can appeal to this demographic.",
+        "A strong online presence, including an up-to-date menu and active social media, is crucial for attracting these consumers."
+      ]
+    }
+  },
+  "socialMediaTrends": {
+    "title": "Social Media Trends: Authenticity, Community, and Visual Appeal",
+    "keyTrends": [
+      {
+        "trend": "Embrace 'Unpolished' Authenticity",
+        "description": "The trend is shifting away from hyper-curated, perfect-looking feeds towards more genuine, behind-the-scenes content. Users are engaging more with short-form videos (Reels, TikTok) that showcase the real people and processes behind a business. This builds trust and a stronger sense of community.",
+        "opportunity": "Your brand's ethos of 'being present' and fostering connection is a perfect fit. Feature your baristas, the coffee-making process, daily happenings, and even mishaps. This humanizes your brand and strengthens your community bond."
+      },
+      {
+        "trend": "Highlight Functional and Visually Striking Beverages",
+        "description": "The demand for wellness-focused drinks (e.g., with adaptogens, mushrooms, floral infusions) is growing. Simultaneously, drinks that are visually unique—with vibrant colors, layers, or creative latte art—are highly shareable on platforms like Instagram and TikTok, acting as organic marketing.",
+        "opportunity": "Introduce a limited-time 'July Wellness Latte' or a colorful, fruit-infused cold brew. Promote it as a special item, creating buzz and encouraging customers to share their drinks online. This taps into both the wellness and visual appeal trends."
+      },
+      {
+        "trend": "Foster Immersive Community Experiences, Promoted Online",
+        "description": "Social media is the primary tool for driving traffic to in-person events. Coffee shops are increasingly acting as community hubs by hosting workshops, live music, or pop-ups with other local businesses. Promoting these events online creates a feedback loop of online engagement and offline interaction.",
+        "opportunity": "Heavily promote the Campbell Summer Concert Series on your social channels. Frame your shop as the perfect pre-show stop. Offer a small discount for concert-goers who show your social media post, directly linking your online activity to in-store sales."
+      }
+    ],
+    "businessOpportunities": [
+      "Create a 'Concert Cooler' specialty iced beverage for Thursdays to market directly to the Summer Concert Series attendees.",
+      "Launch a social media campaign titled 'Know Your Brewer' with short video interviews of your staff to build personal connections with your customers.",
+      "Develop a visually stunning, layered red, white, and blue iced tea or lemonade for the 4th of July week and promote it heavily on Instagram and TikTok.",
+      "Partner with a local bakery or artisan featured at the Campbell Farmers' Market for a special 'Sunday Pairing' and co-promote on social media.",
+      "Given the drop in milk prices, run a 'Latte Love' week with a slight discount on lattes to drive traffic and goodwill."
+    ]
+  }
+}
